@@ -202,7 +202,7 @@ export default function ContactPage() {
                   Thank you for reaching out. Our specialist team will respond to your enquiry as soon as possible.
                 </p>
                 <button
-                  onClick={() => { setSubmitted(false); setFormData({ name: "", email: "", phone: "", message: "" }); }}
+                  onClick={() => { setSubmitted(false); setFormData({ name: "", email: "", phone: "", message: "", reg: "" }); }}
                   className="text-primary font-black uppercase tracking-widest text-xs hover:underline"
                 >
                   Send Another Message
