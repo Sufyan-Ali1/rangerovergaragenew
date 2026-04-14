@@ -1,7 +1,6 @@
-import React from "react";
-import { Metadata } from "next";
-import { Zap } from "lucide-react";
 import ServiceTemplate from "@/components/ServiceTemplate";
+import { Zap } from "lucide-react";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Expert Engine Swaps & Unit Swaps | Range Rover Garage",
@@ -14,7 +13,7 @@ export default function EngineSwapPage() {
       title="Expert Engine Swaps & Unit Swaps"
       description="Professional core swaps and custom engine installations for enthusiasts and standard repairs."
       icon={<Zap className="w-12 h-12" />}
-      heroImage="/10.webp"
+      heroImage="/15r.jpeg"
       content="Engine swapping requires advanced knowledge of modern vehicle electronics and wiring. We specialize in swapping like-for-like units as well as performance swaps. We handle the entire process, including intake mapping, transmission synchronization, and the final coding required for a seamless integration."
       benefits={[
         "Seamless integration with existing systems",
@@ -37,7 +36,7 @@ export default function EngineSwapPage() {
             "Whether you need a like-for-like swap on a 4.4L SDV8, or a performance-oriented unit upgrade for your Range Rover Sport, our engineers plan and execute every job with meticulous attention to wiring integrity, gearbox mating tolerances, and thermal management to ensure a durable and refined end result.",
             "We serve Range Rover and Land Rover owners throughout Essex, London, and across the UK via our nationwide secure vehicle transport service. All engine swap work is carried out transparently, with a detailed job card and photographic documentation provided so you know exactly what has been done to your vehicle."
           ],
-          image: "/hero-bg.png",
+          image: "/2r.webp",
           imageLeft: true,
           imageTitle: "Full Swap Capability",
           imageSubtitle: "Like-for-Like & Performance Units"
@@ -49,7 +48,7 @@ export default function EngineSwapPage() {
             "The mechanical work is just the beginning. After a successful engine swap, our technicians conduct a comprehensive software programming session using JLR Pathfinder, resetting learned values, calibrating adaptive parameters, and ensuring the Engine Control Module, gearbox, and all ancillary systems recognise and communicate correctly with the new unit.",
             "We then road-test every completed swap under real-world conditions, monitoring live data streams for temperature, boost, fuel trims, and transmission behaviour. Only after passing our 50-point post-swap validation checklist is your vehicle certified as ready for collection. This unrivalled attention to detail is why our clients return to us time and time again."
           ],
-          image: "/range_rover_engine_expert_1776083944324.png",
+          image: "/4r.webp",
           imageLeft: false,
           imageTitle: "50-Point Validation",
           imageSubtitle: "Live Data Road Testing Included"

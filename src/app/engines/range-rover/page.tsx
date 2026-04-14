@@ -1,6 +1,5 @@
-import React from "react";
-import { Metadata } from "next";
 import BrandTemplate from "@/components/BrandTemplate";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Range Rover Specialist Services | Premium Care UK",
@@ -12,7 +11,7 @@ export default function RangeRoverPage() {
     <BrandTemplate
       title="Range Rover Specialist Services"
       description="Expert maintenance and performance engineering for the full Range Rover line-up. luxury care for your luxury vehicle."
-      heroImage="/5.webp"
+      heroImage="/5r.webp"
       models={["Vogue (L405/L460)", "Range Rover Sport", "Velar", "Evoque"]}
       content={[
         "Range Rover represents the absolute pinnacle of luxury performance SUVs, and their sophisticated powerplants require a specialized level of engineering care that only 20+ years of dedicated service can provide. At Vogue Technics, we have mastered the art of restoring and maintaining the full spectrum of Range Rover engines, from the classic V8s to the modern Ingenium and SDV8 variants.",

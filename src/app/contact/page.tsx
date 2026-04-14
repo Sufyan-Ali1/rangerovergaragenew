@@ -19,6 +19,15 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate Phone Number (Minimum 11 digits)
+    const phoneDigits = formData.phone.replace(/\D/g, "");
+    if (phoneDigits.length < 11) {
+      setErrorMsg("Please enter a valid phone number with at least 11 digits.");
+      setIsSubmitting(false);
+      return;
+    }
+
     setIsSubmitting(true);
     setErrorMsg("");
 
@@ -26,7 +35,7 @@ export default function ContactPage() {
       website_name: "range-rover-garage-new",
       name: formData.name,
       email: formData.email,
-      phone: formData.phone,
+      phone: formData.phone.replace(/\s+/g, ""),
       postcode: "",
       vrm: formData.reg,
       make: "",
@@ -273,11 +282,11 @@ export default function ContactPage() {
                       </div>
                     </div>
                     <div className="group">
-                      <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest block mb-2 ml-1">Phone</span>
+                      <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest block mb-2 ml-1">Phone*</span>
                       <div className="relative">
                         <Phone className="absolute left-4 top-[14px] w-4 h-4 text-gray-300 group-focus-within:text-primary transition-colors" />
                         <input
-                          type="tel"
+                          type="tel" required
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           placeholder="Enter Phone Number"

@@ -36,7 +36,7 @@ export default function EngineReplacementPage() {
             "Every donor engine we supply goes through our rigorous in-house inspection process before it ever enters your vehicle. We perform compression testing, oil pressure analysis, and an internal borescope inspection to guarantee that the unit meets our strict performance threshold. We source engines for all Range Rover models, including the Vogue L405, Sport L494, Velar, Evoque, and all Land Rover variants.",
             "Based in Grays, Essex with nationwide collection capability, we make the engine replacement process simple and stress-free. Get in touch for a fixed, all-inclusive quote that covers the unit cost, fitting, ECU programming, and our standard 6-month warranty."
           ],
-          image: "/land_rover_specialist_workshop_1776083960596.png",
+          image: "/1r.webp",
           imageLeft: true,
           imageTitle: "Quality Guaranteed Units",
           imageSubtitle: "Inspected & Tested Before Fitting"
@@ -48,7 +48,7 @@ export default function EngineReplacementPage() {
             "Fitting a replacement engine in a modern Range Rover or Land Rover is far more complex than a simple mechanical swap. Our certified JLR technicians handle the complete electronic integration process, re-programming Control Modules, calibrating the transmission, and ensuring the new engine communicates perfectly with your vehicle's complex network of sensors and systems.",
             "Choosing the wrong garage for an engine replacement can result in persistent warning lights, poor fuel economy, or transmission issues. Our 20+ years of JLR-specific electronics knowledge means we've mastered the coding and calibration process for every platform, from Terrain Response to adaptive air suspension synchronisation, giving you a vehicle that feels factory-new from day one."
           ],
-          image: "/hero-bg.png",
+          image: "/2r.webp",
           imageLeft: false,
           imageTitle: "ECU Synchronisation",
           imageSubtitle: "Full System Module Programming"

@@ -114,7 +114,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-500 text-sm" suppressHydrationWarning>
             © {new Date().getFullYear()} Range Rover Garage. All rights reserved.
           </p>
           

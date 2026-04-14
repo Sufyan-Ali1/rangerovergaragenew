@@ -1,6 +1,5 @@
-import React from "react";
-import { Metadata } from "next";
 import BrandTemplate from "@/components/BrandTemplate";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Land Rover Specialist Support | Specialist Care UK",
@@ -12,7 +11,7 @@ export default function LandRoverPage() {
     <BrandTemplate
       title="Land Rover Specialist Support"
       description="Dedicated specialist services for Land Rover Defender, Discovery, and more. Built for the rugged, maintained by experts."
-      heroImage="/7.webp"
+      heroImage="/6r.webp"
       models={["Defender (Classic & New L663)", "Discovery 4/5", "Discovery Sport", "Freelander"]}
       content={[
         "Land Rover vehicles are synonymous with rugged durability and global exploration, and their engines are built to withstand the most demanding conditions. With over 20 years of technical passion, Vogue Technics provides the specialized engineering support required to keep these hard-working machines performing at their legendary peak through every mile.",

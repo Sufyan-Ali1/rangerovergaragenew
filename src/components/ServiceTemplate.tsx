@@ -56,6 +56,7 @@ export default function ServiceTemplate({
             fill
             className="object-cover"
             priority
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
         </div>
@@ -264,7 +265,13 @@ export default function ServiceTemplate({
               <div key={idx} className={`flex flex-col lg:flex-row gap-12 lg:gap-20 items-center ${sec.imageLeft ? '' : 'lg:flex-row-reverse'}`}>
                 {/* Image Side */}
                 <div className="w-full lg:w-1/2 relative h-[400px] md:h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 group shrink-0">
-                  <Image src={sec.image} alt={sec.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <Image 
+                    src={sec.image} 
+                    alt={sec.title} 
+                    fill 
+                    className="object-cover group-hover:scale-105 transition-transform duration-700" 
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-8 md:p-10 z-10 pointer-events-none">
                     {sec.imageTitle && <h4 className="text-white font-heading font-bold text-2xl md:text-3xl mb-2 drop-shadow-md">{sec.imageTitle}</h4>}

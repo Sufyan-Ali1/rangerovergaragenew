@@ -1,23 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { X, ZoomIn } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
-import { X, ZoomIn } from "lucide-react";
 
 const galleryImages = [
-  { src: "/2.webp",      alt: "Range Rover Engine Bay — Expert Workshop Inspection" },
-  { src: "/3.webp",      alt: "Specialist Engine Rebuild — Precision Machining" },
-  { src: "/4.webp",      alt: "Land Rover Engine — Complete Strip Down & Assessment" },
-  { src: "/5.webp",      alt: "Range Rover Sport — Engine Removal & Replacement" },
-  { src: "/6.webp",      alt: "Turbocharger Replacement — JLR Specialist Workshop" },
-  { src: "/7.webp",      alt: "Timing Chain Service — Vogue Technics Grays Essex" },
-  { src: "/8.webp",      alt: "Head Gasket Repair — Precision Surface Skimming" },
-  { src: "/9.webp",      alt: "Engine Components — OEM Quality Parts Verified" },
-  { src: "/10.webp",     alt: "Workshop Bay — State of the Art Diagnostic Equipment" },
-  { src: "/hero-bg.png", alt: "Range Rover Garage — Vogue Technics UK Specialists" },
-  { src: "/1g.webp",     alt: "Land Rover Engine Inspection — 20+ Years Experience" },
-  { src: "/9g.webp",     alt: "JLR Precision Engineering — Range Rover Specialists" },
+  { src: "/1r.webp",      alt: "Range Rover Engine Bay — Expert Workshop Inspection" },
+  { src: "/2r.webp",      alt: "Specialist Engine Rebuild — Precision Machining" },
+  { src: "/3r.webp",      alt: "Land Rover Engine — Complete Strip Down & Assessment" },
+  { src: "/4r.webp",      alt: "Range Rover Sport — Engine Removal & Replacement" },
+  { src: "/5r.webp",      alt: "Turbocharger Replacement — JLR Specialist Workshop" },
+  { src: "/6r.webp",      alt: "Timing Chain Service — Vogue Technics Grays Essex" },
+  { src: "/7r.jpeg",      alt: "Head Gasket Repair — Precision Surface Skimming" },
+  { src: "/8r.jpeg",      alt: "Engine Components — OEM Quality Parts Verified" },
+  { src: "/9.webp",      alt: "Engine Component" },
+  { src: "/10r.jpeg",     alt: "Workshop Bay — State of the Art Diagnostic Equipment" },
+  { src: "/11r.jpeg",  alt: "Range Rover Garage — Vogue Technics UK Specialists" },
+  { src: "/12r.jpeg",     alt: "Land Rover Engine Inspection" },
+  { src: "/13r.jpeg",     alt: "JLR Precision Engineering — Land Rover Specialists" },
+  { src: "/14r.jpeg",     alt: "Land Rover Engine Inspection — 20+ Years Experience" },
+  { src: "/15r.jpeg",     alt: "Range Rover Specialists" },
+  { src: "/16r.jpeg",     alt: "Range Rover Specialists garage" },
 ];
 
 export default function GalleryPage() {

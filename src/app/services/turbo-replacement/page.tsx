@@ -1,7 +1,6 @@
-import React from "react";
-import { Metadata } from "next";
-import { Wind } from "lucide-react";
 import ServiceTemplate from "@/components/ServiceTemplate";
+import { Wind } from "lucide-react";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Turbocharger Replacement & Repair | Range Rover Garage",
@@ -14,7 +13,7 @@ export default function TurboReplacementPage() {
       title="Turbocharger Replacement & Repair"
       description="High-performance turbo replacement for Range Rover Sport and Vogue models. Restore your vehicle's power."
       icon={<Wind className="w-12 h-12" />}
-      heroImage="/9.webp"
+      heroImage="/4r.webp"
       content="Turbocharger issues often manifest as black smoke, loss of power, or a high-pitched whistling sound. We provide both new and reconditioned turbo units, ensuring they are perfectly balanced and calibrated for your specific Range Rover engine. We also perform a full intake system flush to prevent future contamination."
       benefits={[
         "Immediate restoration of power and torque",
@@ -37,7 +36,7 @@ export default function TurboReplacementPage() {
             "Vogue Technics in Grays, Essex, provides rapid turbo assessment and replacement for the full range of JLR vehicles. With over 20 years of dedicated turbocharger experience, our technicians can diagnose the specific failure mode — whether it's a collapsed oil seal, failed variable vane actuator, or compressor wheel impact — and recommend the most cost-effective solution, from a reconditioned unit to a fully new OEM turbocharger.",
             "We use a specialist boost pressure test rig and live smoke testing to confirm the diagnosis before any parts are ordered, ensuring you only pay for what's genuinely needed. Our nationwide vehicle collection means you don't need to risk driving a compromised vehicle to our workshop."
           ],
-          image: "/hero-bg.png",
+          image: "/2r.webp",
           imageLeft: true,
           imageTitle: "Turbo Failure Specialists",
           imageSubtitle: "Early Diagnosis Saves Engines"
@@ -49,7 +48,7 @@ export default function TurboReplacementPage() {
             "A turbocharger replacement done in isolation, without addressing the cause of failure, will see the new unit fail prematurely. Our industry-leading turbo replacement service includes a thorough flush of all oil feed and return lines, an intercooler cleaning procedure to remove any oil deposits from the charge air cooler, and an oil change with JLR-specification lubricant before the new turbo is started under controlled conditions.",
             "Every turbo replacement is followed by a controlled run-in period and a live boost pressure verification on our diagnostic system. Only when the new unit is confirmed to be operating within its designed boost range and temperature threshold do we certify the vehicle as ready. This comprehensive approach is why Vogue Technics is regarded as the UK's most trusted independent turbo specialist for JLR vehicles."
           ],
-          image: "/range_rover_engine_expert_1776083944324.png",
+          image: "/3r.webp",
           imageLeft: false,
           imageTitle: "Full System Flush",
           imageSubtitle: "Intercooler & Oil Lines Restored"

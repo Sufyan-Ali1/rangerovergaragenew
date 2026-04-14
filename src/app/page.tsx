@@ -2,8 +2,7 @@
 
 import MapSection from "@/components/MapSection";
 import RegLookup from "@/components/RegLookup";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   Activity,
   ArrowRight,
@@ -12,7 +11,6 @@ import {
   Cpu,
   FileSearch,
   MapPin,
-  Phone,
   Settings,
   ShieldCheck,
   Wind,
@@ -21,6 +19,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const brandSlides = [
   {
@@ -35,7 +34,7 @@ const brandSlides = [
       "Located in Grays, Essex, we serve luxury vehicle owners across London and the UK with our secure nationwide collection and delivery service. Every Range Rover rebuild is performed using genuine OEM parts and is backed by a comprehensive warranty, ensuring the maximum longevity and resale value of your asset.",
       "Whether you require a minor technical repair or a complete turnkey engine replacement, our 20+ years of JLR-specific heritage ensures a seamless, main-dealer quality service at competitive independent prices. Trust the UK's leading experts who live and breathe Range Rover engineering excellence every day."
     ],
-    image: "/range_rover_engine_expert_1776083944324.png",
+    image: "/16r.jpeg",
     features: [
       "3.0L TDV6 / SDV6 Rebuilds",
       "4.4L SDV8 Full Restoration",
@@ -55,7 +54,7 @@ const brandSlides = [
       "Our engineering process involves a complete technical strip-down, chemical cleaning of all internal components, and precision honing of cylinder bores. We resolve common overheating, head gasket, and coolant loss issues that frequently affect Evoque and Freelander models during their lifecycle.",
       "Choosing Vogue Technics means choosing dealership-quality engineering backed by two decades of technical passion. We offer transparent, fixed-price quotes and up to 24 months of warranty protection, providing the ultimate peace of mind for those who demand the ultimate from their Land Rover adventure vehicle."
     ],
-    image: "/land_rover_specialist_workshop_1776083960596.png",
+    image: "/5r.webp",
     features: [
       "Defender L663 / Classic Specialists",
       "Discovery 4 & 5 Bottom-End Repair",
@@ -75,7 +74,7 @@ const brandSlides = [
       "Experience matters when dealing with modern JLR software and coding. Our technicians are experts in main-dealer level software updates, module programming, and complete vehicle integration. We ensure that every engine swap or repair is perfectly synchronized with your vehicle's complex onboard computer systems.",
       "From our base in Grays, Essex, we maintain the highest standards of transparency and technical integrity. Whether you are a private owner or a trade partner, our 20+ years of proven results make us the UK's first choice for professional Range Rover and Land Rover engine solutions."
     ],
-    image: "/hero-bg.png",
+    image: "/13r.jpeg",
     features: [
       "Pathfinder & TOPIx Cloud Diagnostics",
       "Specialized Engine Timing Jigs",
@@ -114,6 +113,7 @@ function BrandShowcase() {
                 alt={brandSlides[currentSlide].brand}
                 fill
                 className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
             </motion.div>
@@ -216,6 +216,7 @@ export default function Home() {
             fill
             className="object-cover"
             priority
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
         </div>

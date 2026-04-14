@@ -15,14 +15,6 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Range Rover Garage | Premium Range Rover Specialists UK",
   description: "Range Rover Specialists - The UK's leading experts for Range Rover and Land Rover servicing, repairs, and engine rebuilds.",
-  icons: {
-    icon: [
-      { url: "/range rover garage favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "any" },
-    ],
-    shortcut: "/range rover garage favicon.svg",
-    apple: "/range rover garage favicon.svg",
-  },
 };
 
 import Header from "@/components/Header";
@@ -36,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${outfit.variable} antialiased`}>
+    <html lang="en" className={`${inter.variable} ${outfit.variable} antialiased`} suppressHydrationWarning>
       <body className="min-h-screen bg-background text-foreground font-sans flex flex-col">
         <Header />
         <main className="flex-grow">
