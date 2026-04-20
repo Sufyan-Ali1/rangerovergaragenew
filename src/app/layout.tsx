@@ -13,14 +13,55 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Range Rover Garage | Premium Range Rover Specialists UK",
-  description: "Range Rover Specialists - The UK's leading experts for Range Rover and Land Rover servicing, repairs, and engine rebuilds.",
+  metadataBase: new URL("https://www.rangerover-garage.co.uk"),
+  title: {
+    default: "Range Rover Garage | UK's #1 Premium Range Rover Engine Specialists",
+    template: "%s | Range Rover Garage"
+  },
+  description: "UK's leading Range Rover and Land Rover engine specialists. Expert engine rebuilds, timing chains, turbo repairs, and main-dealer diagnostics in Grays, Essex.",
+  keywords: ["Range Rover Engine Rebuild", "Land Rover Specialist", "Range Rover Repair Essex", "JLR Engine Specialist", "Range Rover Timing Chain", "Land Rover Engine Replacement"],
+  authors: [{ name: "Range Rover Garage" }],
+  creator: "Range Rover Garage",
+  publisher: "Range Rover Garage",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Range Rover Garage | Premium Range Rover Specialists UK",
+    description: "The UK's leading experts for Range Rover and Land Rover engine servicing, repairs, and rebuilds.",
+    url: "https://www.rangerover-garage.co.uk",
+    siteName: "Range Rover Garage",
+    locale: "en_GB",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Range Rover Garage | Premium Range Rover Specialists UK",
+    description: "The UK's leading experts for Range Rover and Land Rover engine servicing, repairs, and rebuilds.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HowItWorks from "@/components/HowItWorks";
 import ExpertCTA from "@/components/ExpertCTA";
+import StructuredData from "@/components/StructuredData";
 
 export default function RootLayout({
   children,
@@ -30,6 +71,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable} antialiased`} suppressHydrationWarning>
       <body className="min-h-screen bg-background text-foreground font-sans flex flex-col">
+        <StructuredData />
         <Header />
         <main className="flex-grow">
           {children}

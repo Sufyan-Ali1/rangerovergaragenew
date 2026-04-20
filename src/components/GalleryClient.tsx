@@ -25,7 +25,7 @@ const galleryImages = [
   { src: "/16r.jpeg",     alt: "Range Rover Specialists garage" },
 ];
 
-export default function GalleryPage() {
+export default function GalleryClient() {
   const [lightbox, setLightbox] = useState<string | null>(null);
 
   return (

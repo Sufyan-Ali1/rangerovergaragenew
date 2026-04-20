@@ -32,14 +32,19 @@ export default function Footer() {
               Quality, precision, and excellence in every rebuild.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-primary transition-colors text-white">
+              <a 
+                href="https://www.instagram.com/rangerovergarage76/" 
+                target="_blank" rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-primary transition-colors text-white"
+              >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-primary transition-colors text-white">
+              <a 
+                href="https://www.facebook.com/rangerovergarage/" 
+                target="_blank" rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-primary transition-colors text-white"
+              >
                 <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-primary transition-colors text-white">
-                <Twitter className="w-5 h-5" />
               </a>
             </div>
           </div>

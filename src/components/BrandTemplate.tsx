@@ -1,18 +1,40 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, CheckCircle, Clock, MapPin, ShieldCheck, Star } from "lucide-react";
+import { Award, CheckCircle, Clock, MapPin, ShieldCheck, Star, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
 import MapSection from "./MapSection";
 import RegLookup from "./RegLookup";
+import Breadcrumbs from "./Breadcrumbs";
 
 interface BrandTemplateProps {
   title: string;
   description: string;
   heroImage: string;
-  models: string[];
+  models: {
+    name: string;
+    href?: string;
+  }[];
   content: string | string[];
   specialistAreas: string[];
+  reviews?: {
+    name: string;
+    rating: number;
+    text: string;
+    date: string;
+    model: string;
+  }[];
+  faqs?: {
+    question: string;
+    answer: string;
+  }[];
+  services?: {
+    title: string;
+    slug: string;
+    description: string;
+    icon: React.ReactNode;
+  }[];
 }
 
 export default function BrandTemplate({
@@ -21,7 +43,10 @@ export default function BrandTemplate({
   heroImage,
   models,
   content,
-  specialistAreas
+  specialistAreas,
+  reviews,
+  faqs,
+  services
 }: BrandTemplateProps) {
 
   const fadeIn = {
@@ -100,6 +125,7 @@ export default function BrandTemplate({
       {/* Main Content Section */}
       <section className="py-24 bg-white dark:bg-slate-950 overflow-hidden">
         <div className="container mx-auto px-6 md:px-12">
+          <Breadcrumbs />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start pt-12">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -113,6 +139,8 @@ export default function BrandTemplate({
               <div className="space-y-12 mb-16">
                 {Array.isArray(content) ? (
                   content.map((para, i) => {
+                    if (i === 3 || i === 6) return null; // Render these full-width later
+                    
                     if (i === 0) {
                       return (
                         <div key={i} className="relative pl-8 border-l-4 border-primary">
@@ -123,18 +151,6 @@ export default function BrandTemplate({
                       );
                     }
                     
-                    if (i === 3 || i === 6) {
-                      return (
-                        <div key={i} className="bg-slate-50 dark:bg-slate-900/50 rounded-[2.5rem] p-10 border border-primary/20 shadow-inner relative overflow-hidden group">
-                           <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700"></div>
-                           <h4 className="text-primary font-black uppercase tracking-widest text-xs mb-4">Technical Spotlight</h4>
-                           <p className="text-lg text-slate-800 dark:text-gray-200 leading-relaxed font-bold relative z-10">
-                            {para}
-                           </p>
-                        </div>
-                      );
-                    }
-
                     return (
                       <div key={i} className="group">
                         <div className="flex items-center gap-4 mb-4">
@@ -205,8 +221,14 @@ export default function BrandTemplate({
                   <h4 className="text-primary font-heading font-black text-xl md:text-2xl mb-8 relative z-10 uppercase tracking-tighter">Models We Service</h4>
                   <ul className="flex flex-col gap-4 text-gray-400 relative z-10">
                     {models.map(model => (
-                      <li key={model} className="text-xs md:text-sm font-black uppercase tracking-[0.2em] hover:text-white transition-colors cursor-default">
-                        {model}
+                      <li key={model.name} className="text-xs md:text-sm font-black uppercase tracking-[0.2em] hover:text-white transition-colors">
+                        {model.href ? (
+                          <Link href={model.href} className="hover:text-primary transition-colors">
+                            {model.name}
+                          </Link>
+                        ) : (
+                          model.name
+                        )}
                       </li>
                     ))}
                   </ul>
@@ -216,6 +238,180 @@ export default function BrandTemplate({
           </div>
         </div>
       </section>
+
+      {/* Full-Width Technical Spotlights */}
+      {Array.isArray(content) && (content[3] || content[6]) && (
+        <section className="py-24 bg-slate-900 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -mr-48 -mt-48"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -ml-48 -mb-48"></div>
+          
+          <div className="container mx-auto px-6 md:px-12 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {[3, 6].map((index) => {
+                const para = content[index];
+                if (!para) return null;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="bg-white/5 backdrop-blur-sm rounded-[3rem] p-12 border border-white/10 hover:border-primary/40 transition-all group"
+                  >
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center text-primary">
+                        <Award className="w-6 h-6" />
+                      </div>
+                      <h4 className="text-primary font-black uppercase tracking-widest text-xs">Technical Spotlight</h4>
+                    </div>
+                    <p className="text-2xl font-heading font-bold text-white leading-tight group-hover:text-primary transition-colors">
+                      {para}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Reviews Section */}
+      {reviews && reviews.length > 0 && (
+        <section className="py-24 bg-slate-50 dark:bg-slate-900/50">
+          <div className="container mx-auto px-6 md:px-12">
+            <div className="text-center mb-16">
+              <h2 className="text-sm font-bold text-primary tracking-widest uppercase mb-3">Client Trust</h2>
+              <h3 className="text-4xl font-heading font-black text-slate-900 dark:text-white uppercase tracking-tight">Verified <span className="text-primary italic">Client Reviews</span></h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {reviews.map((review, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-white dark:bg-slate-900 p-8 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-200/20 dark:shadow-none hover:border-primary/30 transition-all flex flex-col h-full"
+                >
+                  <div className="flex items-center gap-1 mb-4">
+                    {[...Array(5)].map((_, starI) => (
+                      <Star key={starI} className={`w-4 h-4 ${starI < review.rating ? 'text-primary fill-primary' : 'text-slate-300'}`} />
+                    ))}
+                  </div>
+                  <p className="text-slate-600 dark:text-gray-400 text-sm leading-relaxed mb-6 italic flex-grow">
+                    "{review.text}"
+                  </p>
+                  <div className="pt-6 border-t border-slate-100 dark:border-slate-800">
+                    <p className="font-black text-slate-900 dark:text-white text-xs uppercase tracking-widest mb-1">{review.name}</p>
+                    <p className="text-[10px] text-primary font-bold uppercase tracking-widest">{review.model}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="mt-12 text-center">
+              <Link
+                href="/reviews"
+                className="inline-flex items-center gap-3 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-10 py-4 rounded-2xl text-sm font-black uppercase tracking-widest hover:bg-primary hover:text-white transition-all border border-slate-200 dark:border-slate-800 shadow-xl"
+              >
+                Explore More Reviews
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* FAQs Section */}
+      {faqs && faqs.length > 0 && (
+        <section className="py-24 bg-white dark:bg-slate-950">
+          <div className="container mx-auto px-6 md:px-12">
+            <div className="text-center mb-16">
+              <h2 className="text-sm font-bold text-primary tracking-widest uppercase mb-3">Service Expertise</h2>
+              <h3 className="text-4xl font-heading font-black text-slate-900 dark:text-white uppercase tracking-tight">Technical <span className="text-primary italic">FAQs</span></h3>
+            </div>
+
+            <div className="max-w-4xl mx-auto space-y-4">
+              {faqs.map((faq, i) => (
+                <details key={i} className="group bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-200 dark:border-slate-800/50 overflow-hidden">
+                  <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
+                    <h4 className="text-lg font-bold text-slate-900 dark:text-white uppercase tracking-tight group-open:text-primary transition-colors">
+                      {faq.question}
+                    </h4>
+                    <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center group-open:rotate-180 transition-transform">
+                      <Star className="w-4 h-4 rotate-90" />
+                    </div>
+                  </summary>
+                  <div className="px-6 pb-6 text-slate-600 dark:text-gray-400 font-medium leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
+                    {faq.answer}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Services Section */}
+      {services && services.length > 0 && (
+        <section className="py-24 bg-slate-50 dark:bg-slate-900/50">
+          <div className="container mx-auto px-6 md:px-12">
+            <div className="text-center mb-16">
+              <h2 className="text-sm font-bold text-primary tracking-widest uppercase mb-3">Our Expertise</h2>
+              <h3 className="text-4xl font-heading font-black text-slate-900 dark:text-white uppercase tracking-tight">Specialist <span className="text-primary italic">Engine Services</span></h3>
+              <p className="mt-4 text-slate-600 dark:text-gray-400 max-w-2xl mx-auto font-medium">
+                Comprehensive engineering solutions for all Range Rover and Land Rover platforms.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {services.map((service, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                  viewport={{ once: true }}
+                  className="group bg-white dark:bg-slate-900 p-8 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-all flex flex-col h-full relative overflow-hidden"
+                >
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700"></div>
+                  
+                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-500 relative z-10">
+                    {service.icon}
+                  </div>
+                  
+                  <h4 className="text-xl font-heading font-black text-slate-900 dark:text-white mb-3 uppercase tracking-tight group-hover:text-primary transition-colors relative z-10">
+                    {service.title}
+                  </h4>
+                  
+                  <p className="text-slate-600 dark:text-gray-400 text-sm leading-relaxed mb-8 flex-grow font-medium relative z-10">
+                    {service.description}
+                  </p>
+
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="inline-flex items-center gap-2 text-primary text-xs font-black uppercase tracking-widest group-hover:translate-x-2 transition-transform relative z-10"
+                  >
+                    View Service
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="mt-16 text-center">
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-10 py-4 rounded-2xl text-sm font-black uppercase tracking-widest hover:bg-primary dark:hover:bg-primary dark:hover:text-white transition-all shadow-xl"
+              >
+                Explore All Services
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       <MapSection />
     </div>

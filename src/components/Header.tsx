@@ -36,7 +36,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isLightPage = pathname === "/get-quote" || pathname === "/gallery" || pathname === "/contact";
+  const isLightPage = pathname === "/get-quote" || pathname === "/gallery" || pathname === "/contact" || pathname === "/services" || pathname === "/reviews" || pathname === "/about" || pathname?.startsWith("/engines");
 
   return (
     <header 
@@ -63,9 +63,9 @@ export default function Header() {
               onMouseEnter={() => setActiveDropdown("services")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center gap-1 text-white hover:text-primary transition-colors font-medium">
+              <Link href="/services" className="flex items-center gap-1 text-white hover:text-primary transition-colors font-medium">
                 Services <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === "services" ? "rotate-180" : ""}`} />
-              </button>
+              </Link>
               <AnimatePresence>
                 {activeDropdown === "services" && (
                   <motion.div 
@@ -94,9 +94,9 @@ export default function Header() {
               onMouseEnter={() => setActiveDropdown("engines")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center gap-1 text-white hover:text-primary transition-colors font-medium">
+              <Link href="/engines" className="flex items-center gap-1 text-white hover:text-primary transition-colors font-medium">
                 Engines <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === "engines" ? "rotate-180" : ""}`} />
-              </button>
+              </Link>
               <AnimatePresence>
                 {activeDropdown === "engines" && (
                   <motion.div 
@@ -119,14 +119,12 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
+            <Link href="/about" className="text-white hover:text-primary transition-colors font-medium">About</Link>
             <Link href="/gallery" className="text-white hover:text-primary transition-colors font-medium">Gallery</Link>
+            <Link href="/reviews" className="text-white hover:text-primary transition-colors font-medium">Reviews</Link>
             <Link href="/contact" className="text-white hover:text-primary transition-colors font-medium">Contact</Link>
 
             <div className="flex items-center gap-3">
-              <a href="tel:+447477733313" className="flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full hover:bg-primary hover:border-primary transition-all font-bold text-sm tracking-wide">
-                <Phone className="w-3.5 h-3.5 text-primary" />
-                07477 733313
-              </a>
               <a href="tel:+441708592377" className="flex items-center gap-1.5 bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition-all font-bold text-sm shadow-lg shadow-primary/20 tracking-wide">
                 <Phone className="w-3.5 h-3.5" />
                 01708 592377
@@ -157,7 +155,7 @@ export default function Header() {
               <Link href="/" onClick={() => setIsOpen(false)} className="text-xl text-white font-bold border-b border-white/5 pb-2">Home</Link>
               
               <div className="flex flex-col gap-2">
-                <span className="text-primary font-bold uppercase text-xs tracking-widest">Our Services</span>
+                <Link href="/services" onClick={() => setIsOpen(false)} className="text-primary font-bold uppercase text-xs tracking-widest hover:underline">Our Services</Link>
                 {services.map((item) => (
                   <Link 
                     key={item.href} 
@@ -171,7 +169,7 @@ export default function Header() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <span className="text-primary font-bold uppercase text-xs tracking-widest">Specialist Engines</span>
+                <Link href="/engines" onClick={() => setIsOpen(false)} className="text-primary font-bold uppercase text-xs tracking-widest hover:underline">Specialist Engines</Link>
                 {engines.map((item) => (
                   <Link 
                     key={item.href} 
@@ -184,14 +182,12 @@ export default function Header() {
                 ))}
               </div>
 
+              <Link href="/about" onClick={() => setIsOpen(false)} className="text-xl text-white font-bold border-b border-white/5 pb-2">About</Link>
               <Link href="/gallery" onClick={() => setIsOpen(false)} className="text-xl text-white font-bold border-b border-white/5 pb-2">Gallery</Link>
+              <Link href="/reviews" onClick={() => setIsOpen(false)} className="text-xl text-white font-bold border-b border-white/5 pb-2">Reviews</Link>
               <Link href="/contact" onClick={() => setIsOpen(false)} className="text-xl text-white font-bold border-b border-white/5 pb-2">Contact Us</Link>
 
               <div className="flex flex-col gap-3">
-                <Link href="tel:+447477733313" className="flex items-center justify-center gap-2 text-white font-bold py-2 border-b border-white/5">
-                  <Phone className="w-4 h-4" />
-                  07477 733313
-                </Link>
                 <Link href="tel:+441708592377" className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-4 rounded-xl font-bold">
                   <Phone className="w-5 h-5" />
                   Call Sales: 01708 592377
