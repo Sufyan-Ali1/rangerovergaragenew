@@ -58,18 +58,22 @@ export default function GetQuoteForm() {
   // Fetch vehicle data on load if reg is in URL
   useEffect(() => {
     generateCaptcha();
-    if (!initialReg) return;
+    const cleanVrm = initialReg.trim().replace(/\s/g, "");
+    if (!cleanVrm) return;
 
     const fetchVehicle = async () => {
       setVehicleStatus("loading");
       try {
-        const res = await fetch(`/api/vehicle-lookup?vrm=${initialReg.replace(/\s/g, "")}`);
+        const res = await fetch(`/api/vehicle-lookup?vrm=${cleanVrm}`);
         if (res.ok) {
           const data = await res.json();
-          const hasMake = data?.vehicleRegistration?.Make;
-          if (hasMake) {
+          // Check if we have any useful data at all
+          const hasData = data?.vehicleRegistration || data?.smmtDetails;
+          if (hasData) {
             setVehicleData(data);
             setVehicleStatus("found");
+            // Also update the form vrm field with the found VRM
+            setFormData(prev => ({ ...prev, vrm: data.vrm || cleanVrm }));
           } else {
             setVehicleStatus("not_found");
           }
