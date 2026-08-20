@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Engine Rebuild",
+    "slug": "engine-rebuild",
+    "description": "Master-level 3.0L TDV6 & SDV6 engine rebuilding. We provide full strip-downs and precision re-assembly using genuine OEM parts to restore factory performance levels.",
+    "icon": "Settings"
+  },
+  {
+    "title": "Timing Chain Replacement",
+    "slug": "timing-chain-replacement",
+    "description": "Specialist timing chain services for JLR Ingenium and V6 engines. Prevent catastrophic engine failure with our precision-timed replacement solutions.",
+    "icon": "Cpu"
+  },
+  {
+    "title": "Turbo Replacement",
+    "slug": "turbo-replacement",
+    "description": "Full diagnostic and high-performance turbocharger replacement for Range Rover Sport and Vogue models. Targeted resolution for limp mode and smoke issues.",
+    "icon": "Wind"
+  },
+  {
+    "title": "Head Gasket Replacement",
+    "slug": "head-gasket-replacement",
+    "description": "Expert head gasket repair and cylinder head resurfacing. We resolve complex overheating and coolant loss issues in all Land Rover and Range Rover engine variants.",
+    "icon": "CheckCircle2"
+  },
+  {
+    "title": "Engine Repair",
+    "slug": "engine-repair",
+    "description": "Precision diagnostics and targeted mechanical repairs for specialized JLR issues. From oil leaks to knocking sounds, we handle every professional detail.",
+    "icon": "Wrench"
+  },
+  {
+    "title": "Engine Replacement",
+    "slug": "engine-replacement",
+    "description": "High-quality low-mileage engine sourcing and fitting. Full turnkey service including all programming, coding, and comprehensive nationwide warranty protection.",
+    "icon": "FileSearch"
+  },
+  {
+    "title": "Engine Swap",
+    "slug": "engine-swap",
+    "description": "Professional performance-matched engine swaps. We handle complete mechanical integration and main-dealer level software programming for a seamless finish.",
+    "icon": "Zap"
+  },
+  {
+    "title": "Timing Belt Replacement",
+    "slug": "timing-belt-replacement",
+    "description": "Critical maintenance for 2.7L and 3.0L TDV6/SDV6 engines. Ensure long-term reliability with our scheduled cambelt and oil pump replacement services.",
+    "icon": "Activity"
+  }
+]

@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import React from "react";
 
 export default function Areas({areas_data}) {
@@ -73,9 +73,9 @@ export default function Areas({areas_data}) {
           ========================== */}
           <div className="mt-4 grid grid-cols-1 gap-3 lg:gap-4 sm:mt-10 sm:grid-cols-2  lg:grid-cols-4 ">
             {areas_data.map((area) => (
-              <button
+              <Link
                 key={area.slug}
-                type="button"
+               href={`/areas/${area.slug}`}
                 className="group cursor-pointer flex min-h-[76px] items-center gap-5 rounded-[18px] border-[2px] border-[#cda653] bg-[#101c32] px-6 text-left shadow-[0_8px_20px_rgba(16,28,50,0.12)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#16243e] hover:shadow-[0_14px_28px_rgba(16,28,50,0.22)]"
               >
                 {/* Location icon */}
@@ -104,7 +104,7 @@ export default function Areas({areas_data}) {
                 <span className="text-[18px] font-semibold tracking-[-0.2px] text-white sm:text-[19px] md:text-[20px]">
                   {area.name}
                 </span>
-              </button>
+              </Link>
             ))}
           </div>
           
