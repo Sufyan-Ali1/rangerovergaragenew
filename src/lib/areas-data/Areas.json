@@ -1,0 +1,70 @@
+[
+    {
+      "name": "London",
+      "slug": "london"
+    },
+    {
+      "name": "Birmingham",
+      "slug": "birmingham"
+    },
+    {
+      "name": "Manchester",
+      "slug": "manchester"
+    },
+    {
+      "name": "Leeds",
+      "slug": "leeds"
+    },
+    {
+      "name": "Liverpool",
+      "slug": "liverpool"
+    },
+    {
+      "name": "Sheffield",
+      "slug": "sheffield"
+    },
+    {
+      "name": "Bristol",
+      "slug": "bristol"
+    },
+    {
+      "name": "Nottingham",
+      "slug": "nottingham"
+    },
+    {
+      "name": "Leicester",
+      "slug": "leicester"
+    },
+    {
+      "name": "Coventry",
+      "slug": "coventry"
+    },
+    {
+      "name": "Southampton",
+      "slug": "southampton"
+    },
+    {
+      "name": "Portsmouth",
+      "slug": "portsmouth"
+    },
+    {
+      "name": "Cambridge",
+      "slug": "cambridge"
+    },
+    {
+      "name": "Oxford",
+      "slug": "oxford"
+    },
+    {
+      "name": "Milton Keynes",
+      "slug": "milton-keynes"
+    },
+    {
+      "name": "Reading",
+      "slug": "reading"
+    },
+    {
+      "name": "Northampton",
+      "slug": "northampton"
+    }
+  ]

@@ -1,0 +1,97 @@
+{
+  "content": "Our specialist engine services are carried out by experienced technicians using advanced diagnostic equipment and genuine OEM parts. We focus on precision, reliability and long-term performance to ensure your vehicle receives the highest standard of care.",
+
+  "benefits": [
+    "Experienced specialist technicians",
+    "Advanced diagnostic equipment",
+    "Genuine OEM parts",
+    "Comprehensive quality checks",
+    "Long-term reliability and performance",
+    "Genuine OEM Parts Used"
+  ],
+
+  "process": [
+    "Initial vehicle inspection and diagnosis",
+    "Detailed assessment and service recommendation",
+    "Professional repair or engine service",
+    "Installation of genuine OEM parts where required",
+    "Final testing and quality inspection"
+  ],
+
+  "warranty": {
+    "title": "Warranty & Parts Excellence",
+    "description": "All our engine services and rebuilds are performed using Genuine OEM Parts to ensure maximum longevity and performance for your vehicle.",
+    "standardProtection": {
+      "title": "Standard Protection:",
+      "description": "Every service includes our comprehensive 6 Months or 6,000 Miles Warranty as standard."
+    },
+    "extendedCoverage": {
+      "title": "Looking for extended coverage?",
+      "description": "We also offer up to 24 Months Warranty, sourced directly from main dealers. Please note, this option comes at a higher cost due to the extended protection and premium coverage."
+    }
+  },
+
+  "modelsContent": {
+    "title": "Specialist Engine Services for Multiple Models",
+    "paragraphs": [
+      "Our specialist team provides professional engine services across a wide range of vehicle models. Every vehicle is assessed individually to identify the exact cause of the issue before any repair work begins.",
+      "We use manufacturer-quality components and specialist diagnostic equipment to ensure accurate repairs and dependable long-term performance."
+    ]
+  },
+
+  "faqs": [
+    {
+      "question": "How long does an engine service take?",
+      "answer": "The time required depends on the vehicle model and the type of service or repair required. After an initial inspection, our specialists can provide a more accurate estimate."
+    },
+    {
+      "question": "Do you use genuine OEM parts?",
+      "answer": "Yes. We use genuine OEM parts wherever required to maintain the quality, reliability and performance of your vehicle."
+    },
+    {
+      "question": "Do you provide a warranty?",
+      "answer": "Yes. Our standard protection includes a 6 Months or 6,000 Miles Warranty, with extended warranty options available for eligible services."
+    }
+  ],
+
+  "reviews": [
+    {
+      "rating": 5,
+      "text": "Excellent service from start to finish. The team explained everything clearly and completed the work professionally.",
+      "name": "Verified Customer",
+      "model": "Vehicle Service",
+      "date": "Recent"
+    },
+    {
+      "rating": 5,
+      "text": "Very professional and knowledgeable specialists. The vehicle was returned in excellent condition.",
+      "name": "Verified Customer",
+      "model": "Engine Service",
+      "date": "Recent"
+    }
+  ],
+
+  "sectionTitles": {
+    "detailedOverview": "Detailed Overview",
+    "specialistCare": "Specialist Care & Technical Precision",
+    "keyBenefits": "Key Benefits",
+    "theProcess": "The Process",
+    "frequentlyAskedQuestions": "Frequently Asked Questions",
+    "verifiedClientReviews": "Verified Client Reviews",
+    "exploreMoreReviews": "Explore More Reviews"
+  },
+
+  "cta": {
+    "title": "Need a",
+    "highlight": "Quote?",
+    "getQuote": "Get Quote",
+    "orCallSpecialist": "Or Call Specialist",
+    "phone": "01708 592377",
+    "phoneLink": "tel:+441708592377"
+  },
+
+  "oemSpecialist": {
+    "title": "OEM Registered Specialist",
+    "subtitle": "Main Dealer Sourced Parts"
+  }
+}

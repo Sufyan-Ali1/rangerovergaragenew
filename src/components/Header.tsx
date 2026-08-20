@@ -119,8 +119,9 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
+             <Link href="/areas" className="text-white hover:text-primary transition-colors font-medium">Areas</Link>
             <Link href="/about" className="text-white hover:text-primary transition-colors font-medium">About</Link>
-            <Link href="/gallery" className="text-white hover:text-primary transition-colors font-medium">Gallery</Link>
+           <Link href="/gallery" className="text-white hover:text-primary transition-colors font-medium">Gallery</Link>
             <Link href="/reviews" className="text-white hover:text-primary transition-colors font-medium">Reviews</Link>
             <Link href="/contact" className="text-white hover:text-primary transition-colors font-medium">Contact</Link>
 

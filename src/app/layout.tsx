@@ -60,8 +60,7 @@ export const metadata: Metadata = {
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import HowItWorks from "@/components/HowItWorks";
-import ExpertCTA from "@/components/ExpertCTA";
+
 import StructuredData from "@/components/StructuredData";
 
 export default function RootLayout({
@@ -83,8 +82,7 @@ export default function RootLayout({
         <main className="flex-grow">
           {children}
         </main>
-        <HowItWorks />
-        <ExpertCTA />
+        
         <Footer />
         <StructuredData />
         <noscript>
