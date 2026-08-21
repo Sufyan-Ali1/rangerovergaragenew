@@ -21,7 +21,9 @@ import Image from "next/image";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RegLookup from "@/components/RegLookup";
 import MapSection from "@/components/MapSection";
-
+import HowItWorks from "@/components/HowItWorks";
+import ExpertCTA from "@/components/ExpertCTA";
+      
 const services = [
   {
     title: "Engine Rebuild",
@@ -453,6 +455,8 @@ export default function EnginesPage() {
             ))}
           </div>
         </div>
+         <HowItWorks />
+        <ExpertCTA />
       </section>
 
       <MapSection />

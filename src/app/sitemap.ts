@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import areasData from "@/lib/areas-data/Areas.json";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.rangerover-garage.co.uk'
@@ -8,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about',
     '/contact',
     '/gallery',
+    '/areas',
     '/get-quote',
     '/services',
     '/reviews',
@@ -44,5 +46,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1 : 0.8,
   }))
 
-  return routes
+
+   const areaRoutes = areasData.map((area) => ({
+    url: `${baseUrl}/areas/${area.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }));
+
+
+
+  return [...routes, ...areaRoutes];
 }

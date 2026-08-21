@@ -1,0 +1,29 @@
+{
+  "section": {
+    "eyebrow": "Areas We Cover",
+    "title": "Areas",
+    "highlight": "FAQs"
+  },
+  "faqs": [
+    {
+      "q": "What specific Range Rover engines do you specialize in?",
+      "a": "We are specialist engineers for the full JLR range, with particular expertise in the 3.0L TDV6/SDV6, 4.4L SDV8, 5.0L V8 Supercharged, and the modern 2.0L Ingenium diesel and petrol engines."
+    },
+    {
+      "q": "Is your timing chain replacement service warrantied?",
+      "a": "Absolutely. Our timing chain replacements use uprated kits and come with a standard 6-month / 6,000-mile warranty, with options to extend coverage up to 24 months through our dealer-level protection plans."
+    },
+    {
+      "q": "Do you provide a full diagnostic report before starting any repair?",
+      "a": "Yes, every vehicle undergoes a comprehensive JLR-certified diagnostic health check. We provide a detailed technical report and a fixed-price quote before any mechanical work begins."
+    },
+    {
+      "q": "Can you handle ECU programming and coding after an engine swap?",
+      "a": "Yes, we utilize the latest JLR Pathfinder and TOPIx software to perform all necessary module programming, adaptations, and coding to ensure the new engine is perfectly integrated with your vehicle's systems."
+    },
+    {
+      "q": "Do you offer nationwide collection for all engine services?",
+      "a": "We offer secure nationwide collection and delivery for all major engine services, including rebuilds, replacements, and significant mechanical repairs, ensuring your vehicle is handled by experts from start to finish."
+    }
+  ]
+}

@@ -86,6 +86,8 @@ const brandSlides = [
     ]
   }
 ];
+import HowItWorks from "@/components/HowItWorks";
+import ExpertCTA from "@/components/ExpertCTA";
 
 function BrandShowcase() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -662,7 +664,7 @@ export default function Home() {
 
       {/* FAQ Section */}
       <section className="py-24 bg-slate-50 dark:bg-slate-900/50">
-        <div className="container mx-auto px-6 md:px-12">
+        <div className="container mx-auto px-6 pb-10 md:px-12">
           <div className="text-center mb-16">
             <h2 className="text-sm font-bold text-primary tracking-widest uppercase mb-3">Your Questions Answered</h2>
             <h3 className="text-4xl md:text-5xl font-heading font-black text-slate-900 dark:text-white mb-6 uppercase tracking-tight">Frequently Asked <span className="text-primary italic">Questions</span></h3>
@@ -710,6 +712,8 @@ export default function Home() {
             ))}
           </div>
         </div>
+        <HowItWorks />
+        <ExpertCTA />
       </section>
 
       <MapSection />

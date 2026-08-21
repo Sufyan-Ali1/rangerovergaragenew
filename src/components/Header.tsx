@@ -119,8 +119,9 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
+             <Link href="/areas" className="text-white hover:text-primary transition-colors font-medium">Areas</Link>
             <Link href="/about" className="text-white hover:text-primary transition-colors font-medium">About</Link>
-            <Link href="/gallery" className="text-white hover:text-primary transition-colors font-medium">Gallery</Link>
+           <Link href="/gallery" className="text-white hover:text-primary transition-colors font-medium">Gallery</Link>
             <Link href="/reviews" className="text-white hover:text-primary transition-colors font-medium">Reviews</Link>
             <Link href="/contact" className="text-white hover:text-primary transition-colors font-medium">Contact</Link>
 
@@ -149,7 +150,7 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-slate-900 border-t border-slate-800 overflow-hidden"
+            className="lg:hidden bg-slate-900 border-t border-slate-800 overflow-hidden max-h-[calc(100vh-80px)] overflow-y-auto"
           >
             <div className="container mx-auto px-6 py-8 flex flex-col gap-6">
               <Link href="/" onClick={() => setIsOpen(false)} className="text-xl text-white font-bold border-b border-white/5 pb-2">Home</Link>
@@ -182,6 +183,7 @@ export default function Header() {
                 ))}
               </div>
 
+              <Link href="/areas" onClick={() => setIsOpen(false)} className="text-xl text-white font-bold border-b border-white/5 pb-2">Areas</Link>
               <Link href="/about" onClick={() => setIsOpen(false)} className="text-xl text-white font-bold border-b border-white/5 pb-2">About</Link>
               <Link href="/gallery" onClick={() => setIsOpen(false)} className="text-xl text-white font-bold border-b border-white/5 pb-2">Gallery</Link>
               <Link href="/reviews" onClick={() => setIsOpen(false)} className="text-xl text-white font-bold border-b border-white/5 pb-2">Reviews</Link>

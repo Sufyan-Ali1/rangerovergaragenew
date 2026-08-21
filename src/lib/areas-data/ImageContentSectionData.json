@@ -1,0 +1,40 @@
+{
+  "sections": [
+    {
+      "title": "Professional Automotive",
+      "titleHighlight": "Specialist Services",
+      "image": "/6r.webp",
+      "imageTitle": "Specialist Automotive Care",
+      "imageSubtitle": "Professional Service & Expertise",
+      "imageLeft": true,
+      "text": [
+        "Our specialist automotive services are designed to provide reliable, professional and precise solutions for a wide range of vehicle requirements.",
+        "Our experienced technicians use specialist equipment, proven repair methods and quality components to ensure every vehicle receives the highest standard of care."
+      ]
+    },
+    {
+      "title": "Quality Repairs With",
+      "titleHighlight": "Technical Precision",
+      "image": "/4r.webp",
+      "imageTitle": "Technical Precision",
+      "imageSubtitle": "Quality Parts & Expert Workmanship",
+      "imageLeft": false,
+      "text": [
+        "Every repair and service is approached with attention to detail. We carefully inspect each vehicle before recommending the most suitable solution.",
+        "From diagnostics and servicing to specialist repairs, our focus is always on dependable results, long-term performance and customer satisfaction."
+      ]
+    },
+    {
+      "title": "Trusted Expertise For",
+      "titleHighlight": "Your Vehicle",
+      "image": "/5r.webp",
+      "imageTitle": "Trusted Automotive Expertise",
+      "imageSubtitle": "Professional Care You Can Rely On",
+      "imageLeft": true,
+      "text": [
+        "Choosing the right automotive specialist can make a significant difference to the reliability and performance of your vehicle.",
+        "Our commitment to professional workmanship, genuine quality parts and thorough inspections ensures that your vehicle is treated with the care and expertise it deserves."
+      ]
+    }
+  ]
+}
