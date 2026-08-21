@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import HowItWorks from "@/components/HowItWorks";
+import ExpertCTA from "@/components/ExpertCTA";
 
 const services = [
   {
@@ -96,7 +98,7 @@ export default function ServicesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 pt-32 pb-24">
+    <div className="min-h-screen bg-white dark:bg-slate-950 pt-32 ">
       <div className="container mx-auto px-6 md:px-12">
         <Breadcrumbs />
         {/* Header Section */}
@@ -390,6 +392,8 @@ export default function ServicesPage() {
           </div>
         </motion.div>
       </div>
+      <HowItWorks />
+        <ExpertCTA />
     </div>
   );
 }

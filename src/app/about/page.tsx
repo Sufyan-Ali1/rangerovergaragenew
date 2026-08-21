@@ -18,6 +18,8 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import HowItWorks from "@/components/HowItWorks";
+import ExpertCTA from "@/components/ExpertCTA";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import MapSection from "@/components/MapSection";
 
@@ -300,7 +302,7 @@ export default function AboutPage() {
                 However, our heart remains with the internal combustion engine. We understand the emotional connection that owners have with their V8 Supercharged Vogues and their rugged TDV6 Discovery 4s. Our commitment is to ensure these legendary powerplants continue to thrive on British roads. When you choose Range Rover Garage, you aren't just choosing a garage; you are choosing a custodian of automotive history. We promise to treat your vehicle with the same respect and technical precision that we would our own.
               </p>
             </div>
-            <div className="pt-10">
+            <div className="pt-10 pb-10">
               <Link
                 href="/get-quote"
                 className="inline-flex items-center gap-4 bg-primary text-white px-12 py-6 rounded-2xl font-heading font-black text-2xl hover:scale-[1.02] transition-transform shadow-2xl shadow-primary/20 uppercase tracking-widest"
@@ -311,6 +313,8 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+         <HowItWorks />
+                <ExpertCTA />
       </section>
 
       <MapSection />

@@ -1,12 +1,12 @@
 import Image from "next/image";
 
-export default function SeoSections({seoSectionsData}) {
-  const { sections: seoSections } = seoSectionsData;
+export default function ImageContentSection({ImageContentSectionData}) {
+  const { sections: ContentSections } = ImageContentSectionData;
 
   return (
     <section className="bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800">
       <div className="container mx-auto px-6 md:px-12 py-24 space-y-24">
-        {seoSections.map((sec, idx) => (
+        {ContentSections.map((sec, idx) => (
           <div
             key={idx}
             className={`flex flex-col lg:flex-row gap-12 lg:gap-20 items-center ${

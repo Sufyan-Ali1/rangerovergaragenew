@@ -1,12 +1,15 @@
 import FAQ from "@/components/areas-components/FAQ";
-import HeroSaction from "@/components/areas-components/HeroSaction";
-import SEOSaction from "@/components/areas-components/SEOSaction";
+import HeroSection from "@/components/areas-components/HeroSection";
+import ImageContentSection from "@/components/areas-components/ImageContentSection";
 import Map_areas from "@/components/areas-components/Map_areas";
 import Services from "@/components/areas-components/Services";
 import ServiceData from "@/lib/areas-data/ServicesData.json"
 import areas_data from "@/lib/areas-data/Areas.json";
 import { notFound } from "next/navigation";
-import SEOContent from "@/components/areas-components/SEOContent"
+import Two_P_Content from "@/components/areas-components/Two_P_Content"
+import HowItWorks from "@/components/HowItWorks";
+import ExpertCTA from "@/components/ExpertCTA";
+     
 export default async function AreasDetail({ params }) {
     const { slug } = await params;
 
@@ -22,22 +25,24 @@ export default async function AreasDetail({ params }) {
         <div className="flex flex-wrap w-full">
             <div className="w-full">
 
-                <HeroSaction data={area.HaroSaction} />
+                <HeroSection data={area.HaroSaction} />
 
-                <SEOSaction
-                    seoSectionsData={area.SEOSaction}
+                <ImageContentSection
+                    ImageContentSectionData={area.SEOSaction}
                 />
 
                 <Services
                     services={ServiceData}
                 />
-            <SEOContent seoContent={area.seoContent} />
+            <Two_P_Content seoContent={area.seoContent} />
 
                 <FAQ
                     faqData={area.FAQ}
                 />
 
                 <Map_areas areasData={area} />
+                <HowItWorks />
+        <ExpertCTA />
 
             </div>
         </div>
