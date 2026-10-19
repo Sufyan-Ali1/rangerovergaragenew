@@ -1,3 +1,4 @@
+import { getRegistrationError } from "@/lib/registration";
 import { NextRequest, NextResponse } from "next/server";
 import {
     buildPortalQuotePayload,
@@ -9,6 +10,13 @@ import {
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json();
+        const registrationError = getRegistrationError(String(body.vrm || body.regNumber || ""));
+        if (registrationError) {
+            return NextResponse.json(
+                { error: registrationError, details: { vrm: [registrationError] } },
+                { status: 422 }
+            );
+        }
         const { websiteSlug, isConfigured } = getPortalConfig();
 
         if (!isConfigured) {

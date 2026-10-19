@@ -1,5 +1,7 @@
 "use client";
 
+import { getRegistrationError } from "@/lib/registration";
+
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
@@ -7,14 +9,15 @@ import { useRouter } from "next/navigation";
 
 export default function RegLookup() {
   const [reg, setReg] = useState("");
-  const [error, setError] = useState(false);
+  const [error, setError] = useState("");
   const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const targetReg = reg.trim();
-    if (!targetReg) {
-      setError(true);
+    const targetReg = reg.replace(/\s/g, "");
+    const registrationError = getRegistrationError(reg);
+    if (registrationError) {
+      setError(registrationError);
       return;
     }
     router.push(`/get-quote${targetReg ? `?reg=${targetReg}` : ""}`);
@@ -22,7 +25,7 @@ export default function RegLookup() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setReg(e.target.value.toUpperCase());
-    if (error) setError(false);
+    setError(getRegistrationError(e.target.value));
   };
 
   return (
@@ -56,7 +59,8 @@ export default function RegLookup() {
               value={reg}
               onChange={handleChange}
               placeholder="ENTER VEHICLE REG"
-              maxLength={8}
+              aria-invalid={Boolean(error)}
+              aria-describedby={error ? "lookup-reg-error" : undefined}
               className="w-full bg-transparent border-none text-slate-900 text-xl font-heading font-black placeholder:text-slate-900/40 uppercase tracking-widest focus:ring-0"
             />
           </div>
@@ -72,12 +76,14 @@ export default function RegLookup() {
       </form>
       
       {error && (
-        <motion.p 
+        <motion.p
+          id="lookup-reg-error"
+          role="alert"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           className="mt-2 text-red-500 font-bold text-sm uppercase tracking-widest text-center lg:text-left pl-4"
         >
-          Kindly add reg number
+          {error}
         </motion.p>
       )}
       
