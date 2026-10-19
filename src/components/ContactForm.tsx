@@ -1,10 +1,13 @@
 "use client";
 
+import { getRegistrationError } from "@/lib/registration";
+
 import { motion } from "framer-motion";
 import { Clock, Loader2, Mail, MapPin, MessageSquare, Phone, Send, User } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { getSubmissionError, networkErrorMessage } from "@/lib/form-errors";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export default function ContactForm() {
@@ -20,6 +23,7 @@ export default function ContactForm() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [regError, setRegError] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [captcha, setCaptcha] = useState({ n1: 0, n2: 0, result: 0 });
 
@@ -36,9 +40,12 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (parseInt(formData.captchaInput) !== captcha.result) {
+    const registrationError = getRegistrationError(formData.reg);
+    setRegError(registrationError);
+    if (registrationError) return;
+
+    if (Number(formData.captchaInput) !== captcha.result) {
       setErrorMsg("Incorrect captcha answer. Please try again.");
-      generateCaptcha();
       return;
     }
 
@@ -91,10 +98,10 @@ export default function ContactForm() {
       if (res.ok) {
         router.push("/thank-you");
       } else {
-        setErrorMsg("Submission failed. Please call us directly on 01708 592377.");
+        setErrorMsg(await getSubmissionError(res));
       }
     } catch {
-      setErrorMsg("Network error. Please call us on 01708 592377.");
+      setErrorMsg(networkErrorMessage);
     } finally {
       setIsSubmitting(false);
     }
@@ -257,12 +264,19 @@ export default function ContactForm() {
                       </div>
                       <input
                         type="text" required
+                        aria-label="Vehicle registration"
+                        aria-invalid={Boolean(regError)}
+                        aria-describedby={regError ? "contact-reg-error" : undefined}
                         value={formData.reg}
-                        onChange={(e) => setFormData({ ...formData, reg: e.target.value.toUpperCase() })}
+                        onChange={(e) => {
+                          setFormData({ ...formData, reg: e.target.value.toUpperCase() });
+                          setRegError(getRegistrationError(e.target.value));
+                        }}
                         className="flex-1 bg-yellow-400/5 border-none text-slate-950 dark:text-white font-heading font-black text-lg tracking-widest text-center focus:ring-0 uppercase placeholder:text-gray-300 outline-none"
                         placeholder="ENTER REG"
                       />
                     </div>
+                    {regError && <p id="contact-reg-error" role="alert" className="text-red-600 text-sm font-bold mt-2">{regError}</p>}
                   </div>
 
                   <div className="group">
@@ -350,7 +364,7 @@ export default function ContactForm() {
                   </div>
 
                   {errorMsg && (
-                    <p className="text-red-500 text-sm font-bold text-center">{errorMsg}</p>
+                    <p role="alert" className="text-red-500 text-sm font-bold text-center">{errorMsg}</p>
                   )}
 
                   <button

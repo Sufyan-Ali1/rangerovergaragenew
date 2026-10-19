@@ -1,5 +1,7 @@
 "use client";
 
+import { getRegistrationError } from "@/lib/registration";
+
 import { AnimatePresence, motion } from "framer-motion";
 import {
   AlertCircle,
@@ -18,6 +20,8 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
+import { getSubmissionError, networkErrorMessage } from "@/lib/form-errors";
+
 const trustFeatures = [
   "Engine Specialists With Over 20 Years Of Experience.",
   "Competitive Prices With Up To 24 Month Warranty.",
@@ -35,6 +39,7 @@ export default function GetQuoteForm() {
   const [vehicleStatus, setVehicleStatus] = useState<"idle" | "loading" | "found" | "not_found">("idle");
   const [captcha, setCaptcha] = useState({ n1: 0, n2: 0, result: 0 });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionError, setSubmissionError] = useState("");
 
   const [formData, setFormData] = useState({
     reg: initialReg,
@@ -46,7 +51,7 @@ export default function GetQuoteForm() {
     captchaInput: "",
   });
 
-  const [errors, setErrors] = useState({ email: "", phone: "", captcha: "" });
+  const [errors, setErrors] = useState({ reg: "", email: "", phone: "", captcha: "" });
 
   const generateCaptcha = () => {
     const n1 = Math.floor(Math.random() * 10) + 1;
@@ -91,20 +96,21 @@ export default function GetQuoteForm() {
 
 
   const validate = () => {
-    const newErrors = { email: "", phone: "", captcha: "" };
-    let isValid = true;
+    const newErrors = { reg: "", email: "", phone: "", captcha: "" };
+    newErrors.reg = getRegistrationError(formData.reg);
+    let isValid = !newErrors.reg;
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = "Please enter a valid email address.";
       isValid = false;
     }
 
-    if (formData.phone.replace(/\s+/g, "").length < 10) {
-      newErrors.phone = "Phone number must be at least 10 digits.";
+    if (formData.phone.replace(/\D/g, "").length < 11) {
+      newErrors.phone = "Please enter a valid phone number with at least 11 digits.";
       isValid = false;
     }
 
-    if (parseInt(formData.captchaInput) !== captcha.result) {
+    if (Number(formData.captchaInput) !== captcha.result) {
       newErrors.captcha = "Incorrect answer. Please try again.";
       isValid = false;
     }
@@ -115,10 +121,8 @@ export default function GetQuoteForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validate()) {
-      if (parseInt(formData.captchaInput) !== captcha.result) generateCaptcha();
-      return;
-    }
+    setSubmissionError("");
+    if (!validate()) return;
 
     setIsSubmitting(true);
 
@@ -176,16 +180,10 @@ export default function GetQuoteForm() {
       if (res.ok) {
         router.push("/thank-you");
       } else {
-        setErrors((prev) => ({
-          ...prev,
-          captcha: "Submission failed. Please try again or call us directly.",
-        }));
+        setSubmissionError(await getSubmissionError(res));
       }
     } catch {
-      setErrors((prev) => ({
-        ...prev,
-        captcha: "Network error. Please call us on 01708 592377.",
-      }));
+      setSubmissionError(networkErrorMessage);
     } finally {
       setIsSubmitting(false);
     }
@@ -291,12 +289,19 @@ export default function GetQuoteForm() {
                   <input
                     type="text"
                     required
-                    value={formData.reg}
-                    onChange={(e) => setFormData({ ...formData, reg: e.target.value.toUpperCase() })}
+                    aria-label="Vehicle registration"
+                        aria-invalid={Boolean(errors.reg)}
+                        aria-describedby={errors.reg ? "quote-reg-error" : undefined}
+                        value={formData.reg}
+                    onChange={(e) => {
+                      setFormData({ ...formData, reg: e.target.value.toUpperCase() });
+                      setErrors((prev) => ({ ...prev, reg: getRegistrationError(e.target.value) }));
+                    }}
                     className="flex-1 bg-yellow-400/5 border-none text-slate-950 font-heading font-black text-xl tracking-widest text-center focus:ring-0 uppercase placeholder:text-gray-300 outline-none"
                     placeholder="ENTER REG"
                   />
                 </div>
+                    {errors.reg && <p id="quote-reg-error" role="alert" className="text-red-600 text-sm font-bold mt-2">{errors.reg}</p>}
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -391,6 +396,12 @@ export default function GetQuoteForm() {
                   />
                 </div>
               </div>
+
+              {submissionError && (
+                <p role="alert" className="text-red-600 text-sm font-bold text-center">
+                  {submissionError}
+                </p>
+              )}
 
               <button
                 type="submit"
